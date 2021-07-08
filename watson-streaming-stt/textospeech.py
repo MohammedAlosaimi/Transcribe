@@ -16,7 +16,7 @@ tts.set_service_url(url)
 
 def storeMP3File():
     # open the txt file and take the results
-    with open('./output/output.txt', 'r') as out:
+    with open('output.txt', 'r') as out:
         text = out.readlines()
 
     # combine the multi lines in one line
@@ -24,7 +24,7 @@ def storeMP3File():
     text = ''.join(str(line) for line in text)
 
     # convert the text to speech and then store it in mp3 file
-    with open('./output/output.mp3', 'wb') as audio_file:
+    with open('output.mp3', 'wb') as audio_file:
         res = tts.synthesize(text, accept='audio/mp3', voice='en-US_AllisonV3Voice').get_result()
         audio_file.write(res.content)
 

@@ -28,6 +28,9 @@ from websocket._abnf import ABNF
 # This class to convert the text to speech and then store it in mp3 file
 import textospeech
 
+# this import to play the mp3 file
+import os
+
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
@@ -226,12 +229,13 @@ def main():
 
 def saveTxtFile():
     # Add this function, so it can save the results in txt file
-    with open('./output/output.txt', 'w') as out:
-        out.writelines(textResult)
-    print("the text have been saved")
+    with open('output.txt', 'w') as output:
+        output.writelines(textResult)
+    # print("the text have been saved")
     # Convert the text to speech and then store it in mp3 file
     textospeech.storeMP3File()
 
+    os.system('output.mp3')
 
 
 if __name__ == "__main__":
