@@ -16,7 +16,7 @@
 <!-- ABSTRACT -->
 ## Abstract
 
-The idea behind this repository is to convert the speech-to-text by [Watson Text to Speech](https://www.ibm.com/cloud/watson-text-to-speech) and then save it in [`output.txt`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.txt). Moreover, it converts the file [`output.txt`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.txt) from text to speech by [Watson Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and then saves it in [`output.mp3`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.mp3).
+The idea behind this repository is to convert the speech-to-text by [Watson Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and then save it in [`output.txt`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.txt). Moreover, it converts the file [`output.txt`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.txt) from text to speech by [Watson Text to Speech](https://www.ibm.com/cloud/watson-text-to-speech) and then saves it in [`output.mp3`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/output.mp3).
 
 <!-- INSTALLATION -->
 ## Installation
@@ -47,3 +47,34 @@ All you need to run this program is to Install the requirements and then you can
 <!-- IMPLEMENTATION -->
 ## Implementation
 
+The following code was added in [`transcribe`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/transcribe.py) to saving the text in a txt file and then called ```python storeMP3File()``` function from [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py) in order to convert the text to speech and save the result in an mp3 file. After that the `system` will play the mp3 file
+
+```python
+def textToSpeech():
+    # Add this function, so it can save the results in txt file
+    with open('output.txt', 'w') as output:
+        output.writelines(textResult)
+    
+    # Convert the text to speech and then store it in mp3 file
+    textospeech.storeMP3File()
+    
+    os.system('output.mp3')
+```
+
+The following code is in [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py). It is used to open a txt file to convert it to speech by Watson Text to Speech and then save it as an mp3 file.
+
+```python
+def storeMP3File():
+    # open the txt file and take the results
+    with open('output.txt', 'r') as out:
+        text = out.readlines()
+
+    # combine the multi lines in one line
+    text = [line.replace('\n', '') for line in text]
+    text = ''.join(str(line) for line in text)
+
+    # convert the text to speech and then store it as mp3 file
+    with open('output.mp3', 'wb') as audio_file:
+        res = tts.synthesize(text, accept='audio/mp3', voice='en-US_AllisonV3Voice').get_result()
+        audio_file.write(res.content)
+```
