@@ -25,6 +25,10 @@ import pyaudio
 import websocket
 from websocket._abnf import ABNF
 
+# This class to convert the text to speech and then store it in mp3 file
+import textospeech
+
+
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 # Even if your default input is multi channel (like a webcam mic),
@@ -120,6 +124,7 @@ def on_message(self, msg):
         else:
             LAST = data
         # This prints out the current fragment that we are working on
+        # This global var to save the result in the txt file
         global textResult
         textResult = data['results'][0]['alternatives'][0]['transcript']
         print(textResult)
@@ -220,9 +225,12 @@ def main():
     ws.run_forever()
 
 def saveTxtFile():
+    # Add this function, so it can save the results in txt file
     with open('./output/output.txt', 'w') as out:
         out.writelines(textResult)
-    print("the text have been dsave")
+    print("the text have been saved")
+    # Convert the text to speech and then store it in mp3 file
+    textospeech.storeMP3File()
 
 
 
