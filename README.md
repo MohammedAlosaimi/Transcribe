@@ -1,4 +1,4 @@
-# chat-bot
+# Transcribe
 
 <!-- PROJECT IMAGE -->
 <p align="center">
@@ -10,7 +10,7 @@
 
 * [Abstract](#abstract)
 * [Installation](#installation)
-* [Quick Start](#design)
+* [Quick Start](#quick_start)
 * [Implementation](#implementation)
 
 <!-- ABSTRACT -->
