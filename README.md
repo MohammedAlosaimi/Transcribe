@@ -10,7 +10,7 @@
 
 * [Abstract](#abstract)
 * [Installation](#installation)
-* [Quick Start](#quick_start)
+* [Quick Start](#quick-start)
 * [Implementation](#implementation)
 
 <!-- ABSTRACT -->
