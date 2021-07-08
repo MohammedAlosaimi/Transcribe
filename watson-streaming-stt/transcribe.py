@@ -220,9 +220,10 @@ def main():
     ws.run_forever()
 
 def saveTxtFile():
-    with open('C:/Users/1/Documents/College/training/smartMethods/Transcribe/Transcribe/output/output.txt', 'w') as out:
+    with open('./output/output.txt', 'w') as out:
         out.writelines(textResult)
     print("the text have been dsave")
+
 
 
 if __name__ == "__main__":
