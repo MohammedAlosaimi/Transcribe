@@ -42,12 +42,12 @@ pipwin install pyaudio
 <!-- QUICK START -->
 ## Quick Start
 
-All you need to run this program is to Install the requirements and then you can run the program from [`transcribe`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/transcribe.py). Note: You may need to change the "b" and "c" if you want to run it from your own server. Text-to-Speech from [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py) and Speech-to-Text from [`speech.cfg`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/speech.cfg).
+All you need to run this program is to Install the requirements and then you can run the program from [`transcribe`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/transcribe.py). Note: You may need to change the `apikey` and `url` if you want to run it from your own server. Text-to-Speech from [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py) and Speech-to-Text from [`speech.cfg`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/speech.cfg).
 
 <!-- IMPLEMENTATION -->
 ## Implementation
 
-The following code was added in [`transcribe`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/transcribe.py) to saving the text in a txt file and then called ```python storeMP3File()``` function from [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py) in order to convert the text to speech and save the result in an mp3 file. After that the `system` will play the mp3 file
+The following code was added in [`transcribe`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/transcribe.py) to saving the text in a txt file and then called `storeMP3File()` function from [`textospeech.py`](https://github.com/MohammedAlosaimi/watson-streaming-stt/blob/master/watson-streaming-stt/textospeech.py) in order to convert the text to speech and save the result in an mp3 file. After that the `system` will play the mp3 file
 
 ```python
 def textToSpeech():
