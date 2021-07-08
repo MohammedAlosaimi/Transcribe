@@ -227,7 +227,7 @@ def main():
     # 6 seconds in the dedicated thread).
     ws.run_forever()
 
-def saveTxtFile():
+def textToSpeech():
     # Add this function, so it can save the results in txt file
     with open('output.txt', 'w') as output:
         output.writelines(textResult)
@@ -241,4 +241,4 @@ def saveTxtFile():
 if __name__ == "__main__":
     main()
 
-saveTxtFile()
+textToSpeech()
